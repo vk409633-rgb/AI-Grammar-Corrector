@@ -1,0 +1,5 @@
+{
+  "name": "AI Grammar Corrector",
+  "description": "An advanced AI-powered grammar and spelling correction tool. It offers real-time feedback, with a 'Pro' tier for enhanced suggestions and customizable style options, all without using local storage.",
+  "requestFramePermissions": []
+}
