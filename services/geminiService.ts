@@ -2,12 +2,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { StyleOption } from '../types';
 
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable is not set.");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 const proResponseSchema = {
     type: Type.OBJECT,
     properties: {
@@ -29,6 +23,11 @@ export const correctGrammar = async (
     isPro: boolean, 
     style: StyleOption
 ): Promise<{ correctedText: string; explanation: string | null }> => {
+    if (!process.env.API_KEY) {
+        throw new Error("API_KEY environment variable is not set.");
+    }
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
     if (!text.trim()) {
         return { correctedText: '', explanation: null };
     }
